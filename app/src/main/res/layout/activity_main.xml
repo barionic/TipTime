@@ -32,8 +32,56 @@
             android:id="@+id/cost_of_service"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            tools:ignore="VisualLintSystemUi" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/icon_service_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="@+id/service_question"
+        app:layout_constraintStart_toStartOf="@+id/icon_cost_of_service"
+        app:layout_constraintTop_toTopOf="@+id/service_question"
+        app:srcCompat="@drawable/ic_service" />
+
+    <TextView
+        android:id="@+id/service_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="How was the service?"
+        app:layout_constraintStart_toStartOf="@+id/cost_of_service_editText"
+        app:layout_constraintTop_toBottomOf="@+id/cost_of_service_editText" />
+
+    <RadioGroup
+        android:id="@+id/tip_option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/service_question"
+        app:layout_constraintTop_toBottomOf="@+id/service_question" >
+
+        <RadioButton
+            android:id="@+id/option_twentyPercent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Amazing (20%)" />
+
+        <RadioButton
+            android:id="@+id/option_eighteenPercent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Good (18%)" />
+
+        <RadioButton
+            android:id="@+id/option_fifteenPercent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Okay (15%)" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
