@@ -29,9 +29,15 @@ class MainActivity : AppCompatActivity() {
             calculate()
         }
 
-        //para não começar com "%s" no Tip Amount
-        val formattedTip = NumberFormat.getCurrencyInstance().format(0)
-        binding.tipResult.text = getString(R.string.tip_amount, formattedTip)
+        if (savedInstanceState == null){
+            //para não começar com "%s" no Tip Amount
+            val formattedTip = NumberFormat.getCurrencyInstance().format(0)
+            binding.tipResult.text = getString(R.string.tip_amount, formattedTip)
+        }
+        else{
+            binding.tipResult.text = savedInstanceState.getString("result")
+        }
+
     }
 
     fun calculate(){
@@ -59,5 +65,12 @@ class MainActivity : AppCompatActivity() {
         val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
 
         binding.tipResult.text = getString(R.string.tip_amount, formattedTip)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("result", binding.tipResult.text.toString())
+        //result como forma de recuperar infos pós-rotação de tela;
+        //funciona como um intent
     }
 }
